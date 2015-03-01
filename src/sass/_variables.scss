@@ -1,14 +1,5 @@
-// Import Fonts
-@include font-face("AGaramondPro-Regular", "/fonts/AGaramondPro-Regular", $file-formats: eot otf svg ttf woff);
-@include font-face("DIN-Bold", "/fonts/DIN-Bold", $file-formats: eot svg ttf woff);
-@include font-face("DIN-Regular", "/fonts/DIN-Regular", $file-formats: eot svg ttf woff);
-@include font-face("Roboto-Regular", "/fonts/Roboto-Regular", $file-formats: eot svg ttf woff);
-
 // Typography
 $number-font-family: "DIN-Regular";
-$title-font-family: "DIN-Bold";
-$body-font-family: "Roboto-Regular";
-$introduction-font-family: "AGaramondPro-Regular";
 
 // Font Sizes
 $base-font-size: 1em;

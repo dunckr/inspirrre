@@ -1,4 +1,3 @@
-
-console.log "here"
-
+React = require "react"
 require "./test.cjsx"
+

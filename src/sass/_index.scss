@@ -1,13 +1,8 @@
 $grey:#EEEDEB;
- html {
-  border-style: solid;
-  border-color: $grey;
-  border-width: 6px;
-  @include media($medium-screen) {
-    border-width: 10px;
-  }
-}
+
 body {
+  @include outer-container;
+  color: red;
   margin: 0;
 }
 header {
@@ -17,90 +12,4 @@ header {
     float: right;
   }
   @include padding(50px);
-}
-section {
-  @include outer-container;
-  text-align: left;
-  &.jumbo {
-    @include padding(200px null 100px null);
-  }
-  &.info > div {
-    @include padding(null null 50px);
-    img {
-      width: 100%;
-    }
-    @include media($medium-screen) {
-      @include span-columns(4);
-    }
-  }
-  &.collection {
-    @include padding(null null 50px);
-  }
-}
-.social a {
-  cursor: pointer;
-}
-footer {
-  @include clearfix();
-  background-color: $grey;
-  @include padding(50px 20px 50px);
-  p {
-    @include outer-container;
-  }
-}
-.portfolio {
-  cursor: pointer;
-  div {
-    @include media($medium-screen) {
-      @include span-columns(4);
-      @include omega(3n);
-    }
-  }
-  img {
-    visibility: hidden;
-    width: 100%;
-  }
-  div:hover {
-    img {
-      visibility: visible;
-    }
-  }
-  .first {
-    background-color: #F2ECE6;
-  }
-  .second {
-    background-color: #DBEAF3;
-  }
-  .third {
-    background-color: #FAE7EE;
-  }
-  .fourth {
-    background-color: #EEEEEE;
-  }
-  .fifth {
-    background-color: #FFEEE5;
-  }
-  .sixth {
-    background-color: #FFFAE5;
-  }
-  .seventh {
-    background-color: #F3EAF2;
-  }
-  .eighth {
-    background-color: #EAFAF5;
-  }
-  .ninth {
-    background-color: #FFFFFF;
-  }
-}
-#overlay {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  background-color: white;
-  transition: background-color .25s ease-in-out;
-  -moz-transition: background-color .25s ease-in-out;
-  -webkit-transition: background-color .25s ease-in-out;
 }
