@@ -1,3 +1,5 @@
 React = require "react"
-require "./test.cjsx"
+App = require "./templates/app.cjsx"
+
+React.render <App name='World' />, document.getElementById('hello')
 

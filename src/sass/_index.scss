@@ -1,15 +1,8 @@
-$grey:#EEEDEB;
-
 body {
   @include outer-container;
-  color: red;
-  margin: 0;
 }
 header {
   @include outer-container;
   @include clearfix();
-  img, a {
-    float: right;
-  }
   @include padding(50px);
 }
