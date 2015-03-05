@@ -5,15 +5,13 @@
   "browser": {},
   "browserify": {
     "transform": [
-      "hbsfy",
-      "browserify-shim",
-      [
-        "coffee-reactify",
-        {
+      "browserify-shim", [
+        "coffee-reactify", {
           "coffeeout": true
         }
       ],
-      "coffeeify"
+      "coffeeify",
+      "hbsfy"
     ]
   },
   "browserify-shim": {},
