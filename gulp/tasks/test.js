@@ -1,15 +1,19 @@
 var gulp = require('gulp');
 var jest = require('gulp-jest');
 
-gulp.task('test', function() {
-  return gulp.src('src/js').pipe(jest({
-    scriptPreprocessor: '../../preprocessor.js',
+gulp.task('test', ['jest'], function(callback) {
+  gulp.watch('src/js', ['jest']);
+});
+
+gulp.task('jest', function() {
+  return gulp.src('src/js/**/__tests__').pipe(jest({
+    scriptPreprocessor: '../../../preprocessor.js',
     unmockedModulePathPatterns: [
-      'node_modules/react'
+      '<rootDir>/node_modules/react'
     ],
-    testDirectoryName: 'tests',
     testPathIgnorePatterns: [
-      'node_modules'
+      '/node_modules',
+      '<rootDir>/node_modules/'
     ],
     moduleFileExtensions: [
       'jsx',
@@ -18,10 +22,8 @@ gulp.task('test', function() {
       'coffee'
     ],
     testFileExtensions: [
-      'spec.jsx',
-      'spec.js',
-      'spec.cjsx',
-      'spec.coffee'
+      'coffee',
+      'js'
     ]
   }));
 });
