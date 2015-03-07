@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var jest = require('jest-cli');
+require('harmonize')();
 
 var jestConfig = {
   rootDir: '.',
