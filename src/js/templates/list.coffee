@@ -4,14 +4,15 @@ Item = require "./item"
 List = React.createClass
 
   render: ->
-    item = <Item title="test"></Item>
+    items = @props.items.map(@renderItem)
     <div>
-      {item}
-      {item}
-      {item}
-      {item}
+      {items}
     </div>
 
-  renderItem: ->
+  renderItem: (item) ->
+    console.log item.image_url
+    <Item
+      src={item.image_url}
+    ></Item>
 
 module.exports = List

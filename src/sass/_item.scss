@@ -1,4 +1,11 @@
 .item {
-  @include span-columns(4);
-  @include omega(3n);
+  @include span-columns(12);
+  @include media($medium-screen) {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }

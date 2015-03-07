@@ -10,7 +10,7 @@ Item = React.createClass
       onMouseOver={@mouseOver}
       onMouseLeave={@mouseLeave}
     >
-      <img src={@state.src} />
+      <img src={@props.src} />
     </div>
 
   mouseOver: ->
