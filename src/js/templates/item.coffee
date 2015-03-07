@@ -1,4 +1,4 @@
-React = require('react')
+React = require "react"
 
 Item = React.createClass
   render: ->
@@ -6,7 +6,6 @@ Item = React.createClass
       borderBottom: '1px solid #ccc'
       paddingBottom: 15
 
-    # return
     <div className="col-sm-3" style={itemStyle}>
       <h4>{this.props.item.title}</h4>
     </div>

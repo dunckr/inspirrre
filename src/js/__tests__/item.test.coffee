@@ -16,6 +16,4 @@ describe 'CatalogItem', ->
 
     addToCart = TestUtils.renderIntoDocument <Item item={fakeItem}/>
     title = TestUtils.findRenderedDOMComponentWithTag(addToCart, 'h4')
-    #expect(title.getDOMNode().textContent).toEqual('FakeItem 1')
-    expect(title.getDOMNode().textContent).toEqual('FakeItem')
-
+    expect(title.getDOMNode().textContent).toEqual('FakeItem 1')

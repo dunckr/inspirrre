@@ -1,29 +1,36 @@
 var gulp = require('gulp');
-var jest = require('gulp-jest');
+var jest = require('jest-cli');
 
-gulp.task('test', ['jest'], function(callback) {
-  gulp.watch('src/js', ['jest']);
+var jestConfig = {
+  rootDir: '.',
+  scriptPreprocessor: '<rootDir>/preprocessor.js',
+  unmockedModulePathPatterns: [
+    '<rootDir>/node_modules/react'
+  ],
+  testPathIgnorePatterns: [
+    '/node_modules',
+    '<rootDir>/node_modules/'
+  ],
+  moduleFileExtensions: [
+    'jsx',
+    'js',
+    'cjsx',
+    'coffee'
+  ],
+  testFileExtensions: [
+    'coffee',
+    'js'
+  ]
+};
+
+gulp.task('jest', function(done) {
+  jest.runCLI({
+    config: jestConfig
+  }, 'src/js/**/__tests__', function() {
+    done();
+  });
 });
 
-gulp.task('jest', function() {
-  return gulp.src('src/js/**/__tests__').pipe(jest({
-    scriptPreprocessor: '../../../preprocessor.js',
-    unmockedModulePathPatterns: [
-      '<rootDir>/node_modules/react'
-    ],
-    testPathIgnorePatterns: [
-      '/node_modules',
-      '<rootDir>/node_modules/'
-    ],
-    moduleFileExtensions: [
-      'jsx',
-      'js',
-      'cjsx',
-      'coffee'
-    ],
-    testFileExtensions: [
-      'coffee',
-      'js'
-    ]
-  }));
+gulp.task('test', ['jest'], function() {
+  gulp.watch('src/js/**', ['jest']);
 });
