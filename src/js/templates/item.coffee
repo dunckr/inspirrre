@@ -1,13 +1,22 @@
 React = require "react"
 
 Item = React.createClass
-  render: ->
-    itemStyle =
-      borderBottom: '1px solid #ccc'
-      paddingBottom: 15
 
-    <div className="col-sm-3" style={itemStyle}>
-      <h4>{this.props.item.title}</h4>
+  getInitialState: ->
+    src: "https://d13yacurqjgara.cloudfront.net/users/31664/screenshots/1962156/cub-studio-birthday_teaser.gif"
+
+  render: ->
+    <div className="item"
+      onMouseOver={@mouseOver}
+      onMouseLeave={@mouseLeave}
+    >
+      <img src={@state.src} />
     </div>
+
+  mouseOver: ->
+    # send event!
+
+  mouseLeave: ->
+    # send event!
 
 module.exports = Item

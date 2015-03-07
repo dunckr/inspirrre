@@ -1,0 +1,4 @@
+.item {
+  @include span-columns(4);
+  @include omega(3n);
+}

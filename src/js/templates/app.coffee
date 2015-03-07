@@ -1,15 +1,16 @@
 React = require 'react'
-ContentToggle = require "./content"
-Hello = require "./hello"
+Header = require "./header"
+List = require "./list"
+Footer = require "./footer"
+Modal = require "./modal"
 
 App = React.createClass
   render: ->
-    <div className="App">
-      <h1>Hello, {@props.name}!</h1>
-      <Hello />
-      <ContentToggle summary="Tacos">
-        <p>Everybody should eat tacos.</p>
-      </ContentToggle>
+    <div className="app">
+      <Header></Header>
+      <List></List>
+      <Footer></Footer>
+      <Modal></Modal>
     </div>
 
 module.exports = App

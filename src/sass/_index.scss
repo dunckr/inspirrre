@@ -1,8 +1,0 @@
-body {
-  @include outer-container;
-}
-header {
-  @include outer-container;
-  @include clearfix();
-  @include padding(50px);
-}
