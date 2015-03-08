@@ -13,9 +13,13 @@ App = React.createClass
   getInitialState: ->
     data: []
 
+  getDefaultProps: ->
+    page: 1
+    numberPerPage: 10
+
   componentDidMount: ->
     document.body.addEventListener "keydown", @keyPress
-    @request(1)
+    @request(@props.page)
 
   render: ->
     <div
@@ -28,13 +32,14 @@ App = React.createClass
     </div>
 
   request: (page) ->
-    jsonp @url(4, page), {}, (err, data) =>
-      console.log "setting the state"
+    jsonp @url(@props.numberPerPage, page), {}, (err, data) =>
       @setState
         data: data.shots
 
   keyPress: (e) ->
-    console.log "keypress!", e
-    @request(2)
+    switch e.keyCode
+      when 39 then @props.page++
+      when 37 then @props.page--
+    @request(@props.page)
 
 module.exports = App
