@@ -39,9 +39,9 @@ App = React.createClass
         data: data.shots
 
   keyPress: (e) ->
-    switch e.keyCode
-      when 39 then @props.page++
-      when 37 then @props.page--
-    @request(@props.page)
+    #switch e.keyCode
+      #when 39 then @props.page++
+      #when 37 then @props.page--
+    #@request(@props.page)
 
 module.exports = App

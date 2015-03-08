@@ -1,19 +1,17 @@
 React = require "react"
+Dispatcher = require "../dispatchers/dispatcher"
 
 Item = React.createClass
 
   render: ->
     <div className="item"
-      onMouseOver={@mouseOver}
-      onMouseLeave={@mouseLeave}
+      onClick={@click}
     >
       <img src={@props.item.image_url} />
     </div>
 
-  mouseOver: ->
-    # send event!
-
-  mouseLeave: ->
-    # send event!
+  click: ->
+    Dispatcher.dispatch
+      item: @props.item
 
 module.exports = Item
