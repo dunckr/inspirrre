@@ -1,4 +1,4 @@
 React = require "react"
-App = require "./templates/app"
+App = require "./components/app"
 
 React.render <App/>, document.getElementById "app"

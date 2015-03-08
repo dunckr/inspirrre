@@ -32,6 +32,8 @@ App = React.createClass
     </div>
 
   request: (page) ->
+    @setState
+      data: []
     jsonp @url(@props.numberPerPage, page), {}, (err, data) =>
       @setState
         data: data.shots

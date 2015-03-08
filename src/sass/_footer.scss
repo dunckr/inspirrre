@@ -1,5 +1,3 @@
 .footer {
-  background-color: red;
   @include clearfix();
-  @include span-columns(12);
 }
