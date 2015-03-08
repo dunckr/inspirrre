@@ -10,9 +10,8 @@ List = React.createClass
     </div>
 
   renderItem: (item) ->
-    console.log item.image_url
     <Item
-      src={item.image_url}
+      item={item}
     ></Item>
 
 module.exports = List
