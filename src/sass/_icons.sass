@@ -23,14 +23,6 @@
     text-transform: none
     @content
 
-=icon--close
-  +icon("\e002")
-    @content
-
-.icon
-  &.-close
-    +icon--close
-
 =icon--left-nav
   +icon("\e001")
     @content
@@ -38,6 +30,14 @@
 .icon
   &.-left-nav
     +icon--left-nav
+
+=icon--close
+  +icon("\e002")
+    @content
+
+.icon
+  &.-close
+    +icon--close
 
 =icon--right-nav
   +icon("\e003")
