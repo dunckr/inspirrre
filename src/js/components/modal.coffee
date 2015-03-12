@@ -8,10 +8,11 @@ Modal = React.createClass
     img: ""
 
   componentDidMount: ->
-    #Dispatcher.register (data) =>
-      #@setState
-        #visible: true
-        #url: data.item.image_url
+    Dispatcher.register (data) =>
+      return unless data.item?
+      @setState
+        visible: true
+        img: data.item.image_url
 
   hidden: ->
     if @state.visible
@@ -21,14 +22,16 @@ Modal = React.createClass
 
   render: ->
     <div className="modal #{@hidden()}">
-      <div className="left">
-        <p>prev</p>
-        <span className="icon -close"></span>
+      <div className="modal-header">
+          <span className="icon -close" onClick={@close}></span>
       </div>
       <div className="modal-content">
-        <h1>content</h1>
-        <img src={@state.url} />
+        <img src={@state.img} />
       </div>
     </div>
+
+  close: ->
+    @setState
+      visible: false
 
 module.exports = Modal
