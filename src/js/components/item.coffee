@@ -11,7 +11,7 @@ Item = React.createClass
     </div>
 
   click: ->
-    Dispatcher.dispatch
-      item: @props.item
+    #Dispatcher.dispatch
+      #item: @props.item
 
 module.exports = Item

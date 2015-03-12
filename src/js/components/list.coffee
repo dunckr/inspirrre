@@ -4,10 +4,11 @@ Item = require "./item"
 List = React.createClass
 
   render: ->
-    items = @props.items.map(@renderItem)
-    <div>
-      {items}
-    </div>
+    console.log @props.items
+    #items = @props.items.map(@renderItem)
+    #<div>
+      #{items}
+    #</div>
 
   renderItem: (item) ->
     <Item
