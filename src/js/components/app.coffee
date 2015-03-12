@@ -1,4 +1,5 @@
 React = require 'react'
+Dispatcher = require "../dispatchers/dispatcher"
 Header = require "./header"
 List = require "./list"
 Footer = require "./footer"
@@ -7,7 +8,7 @@ Modal = require "./modal"
 App = React.createClass
 
   componentDidMount: ->
-    #document.body.addEventListener "keydown", @keyPress
+    document.body.addEventListener "keydown", @keyPress
     @props.shots.addChangeListener =>
       @setProps
         shots: @props.shots
@@ -20,14 +21,11 @@ App = React.createClass
       <Modal></Modal>
     </div>
 
-  #request: (page) ->
-    #@setState
-      #data: []
-
-  #keyPress: (e) ->
-    #switch e.keyCode
-      #when 39 then @props.page++
-      #when 37 then @props.page--
-    #@request(@props.page)
+  keyPress: (e) ->
+    switch e.keyCode
+      when 39
+        Dispatcher.dispatch(page: "next")
+      when 37
+        Dispatcher.dispatch(page: "prev")
 
 module.exports = App
