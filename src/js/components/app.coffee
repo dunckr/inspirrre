@@ -6,23 +6,16 @@ Modal = require "./modal"
 
 App = React.createClass
 
-
-  getDefaultProps: ->
-    page: 1
-    numberPerPage: 10
-
   componentDidMount: ->
     #document.body.addEventListener "keydown", @keyPress
-    #@request(@props.page)
-    #console.log @props
-    console.log @props
-    @props.shots.addChangeListener ->
-      console.log "shots changed!"
+    @props.shots.addChangeListener =>
+      @setProps
+        shots: @props.shots
 
   render: ->
-    #<List items={@props.shots.store}></List>
     <div className="app">
       <Header></Header>
+      <List items={@props.shots.store}></List>
       <Footer></Footer>
       <Modal></Modal>
     </div>

@@ -9,23 +9,25 @@ class Shots extends EventEmitter
     change: "CHANGE"
 
   constructor: ->
+    @store = []
     @api = new Api()
     @initEvents()
+    @request(page: "next")
 
   initEvents: ->
-    Dispatcher.register (data) =>
-      return unless data.page?
-      if data.page is "next" then @page++ else @page--
-      @api.request @page, (data) =>
-        @store = data.shots
-        @emitChange()
+    Dispatcher.register (data) => @request(data)
+
+  request: (data) ->
+    return unless data.page?
+    if data.page is "next" then @page++ else @page--
+    @api.request @page, (data) =>
+      @store = data.shots
+      @emitChange()
 
   emitChange: ->
-    console.log "emitChange"
     @emit(@events.change)
 
   addChangeListener: (cb) ->
-    console.log "change listener..."
     @on(@events.change, cb)
 
   removeChangeListener: (cb) ->
