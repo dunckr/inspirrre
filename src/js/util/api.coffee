@@ -4,11 +4,14 @@ class Api
 
   number: 10
 
+  constructor: (options) ->
+    @service = options.service ? jsonp
+
   url: (page) ->
-    "http://api.dribbble.com/shots/popular?per_page=#{@number}5&page=#{page}"
+    "http://api.dribbble.com/shots/popular?per_page=#{@number}&page=#{page}"
 
   request: (page, cb) ->
-    jsonp @url(page), {}, (err, data) ->
+    @service @url(page), {}, (err, data) ->
       cb(data)
 
 module.exports = Api
